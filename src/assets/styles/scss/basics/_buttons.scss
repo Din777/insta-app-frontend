@@ -1,0 +1,16 @@
+button {
+    width: rem(70px);
+    font-size: rem(15px);
+    font-weight: 500;
+    // background-color: $clr1;
+    // color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    // margin-inline-start: 5px;
+    // padding-bottom: 2px ;
+}
+
+button:hover {
+    cursor: pointer;
+}

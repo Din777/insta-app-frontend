@@ -1,0 +1,55 @@
+[
+    {
+        "_id": "u101",
+        "createdAt": 12122134434,
+        "fullname": "Puki Muki",
+        "username": "muki",
+        "password": "123456",
+        "isAdmin": true,
+        "imgUrl": "http://some-img",
+        "followers": [
+            {
+                "_id": "u104",
+                "fullname": "Shuki",
+                "imgUrl": "http://some-img"
+            }
+        ],
+        "following": [
+            {
+                "_id": "u105",
+                "fullname": "Bob",
+                "imgUrl": "http://some-img"
+            }
+        ],
+        "posts": [
+            {
+                "_id": "p101",
+                "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg",
+                "title": "The amazing power of nature!",
+                "createdAt": 1519225809934,
+                "likes": [
+                    {
+                        "id": "makeId",
+                        "byUser": {
+                            "_id": "u102",
+                            "username": "Sara Connor",
+                            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStktAVwIe6xnl3UVjsNhPVdhKr6ZZRC50hGQ&usqp=CAU"
+                        }
+                    }
+                ],
+                "comments": [
+                    {
+                        "id": "makeId",
+                        "txt": "Very helpful hosts. Cooked traditional...",
+                        "createdAt": 1519211809934,
+                        "byUser": {
+                            "_id": "u102",
+                            "username": "Sara Connor",
+                            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStktAVwIe6xnl3UVjsNhPVdhKr6ZZRC50hGQ&usqp=CAU"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

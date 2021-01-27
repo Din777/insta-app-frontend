@@ -1,0 +1,37 @@
+.act-btn-container {
+    cursor: pointer;
+
+    .post-actions-btns {
+        width: 600px;
+
+        .left-act-btns-container {
+            width: 100px;
+            margin-inline-start: 10px;
+        }
+    }
+
+    .right-act-btn {
+        // display: inline-flex;
+        // flex-direction: row-reverse;
+        // margin-inline-start: 480px;
+    }
+
+    svg {
+        // fill: rgb(255, 0, 179);
+    }
+    .liked {
+        svg {
+            fill: red;
+        }
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-inline-start: 18px;
+        font-size: rem(13px);
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 600;
+        line-height: 1.43;
+        letter-spacing: 0.01071em;
+    }
+}

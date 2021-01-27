@@ -1,0 +1,32 @@
+.comment-area {
+    form {
+        // .add-comment-btn-container {
+        //     //changing all margin at .add-post-modal-btn
+        //     display: flex;
+        //     flex-direction: row-reverse;
+        //     padding: rem(10px);
+
+        .add-comment-textarea {
+            width: 100%;
+            color: #8e8e8e;
+            padding: rem(16px);
+            border: 0;
+            border-top: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+            display: block;
+            font-family: inherit;
+        }
+
+        .add-comment-btn {
+            background-color: transparent;
+            border: 0;
+            color: #0095f6;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            flex-direction: row-reverse;
+            // padding: rem(10px);
+        }
+        // }
+    }
+}

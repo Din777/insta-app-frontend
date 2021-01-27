@@ -1,0 +1,22 @@
+.app {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+}
+.app-body {
+    margin-top: 50px;
+    max-width: 600px;
+
+    .add-post-btn {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: rem(38px);
+        height: rem(36px);
+    }
+
+    .main-footer {
+        margin: 80px 0 40px 0;
+        color: grey;
+    }
+}

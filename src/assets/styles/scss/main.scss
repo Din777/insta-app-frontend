@@ -1,0 +1,32 @@
+// Setup
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+@import "setup/typography";
+
+// Basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/base";
+@import "basics/buttons";
+@import "basics/links";
+@import "basics/forms";
+
+// Components
+@import "cmps/header";
+@import "cmps/add-post";
+@import "cmps/add-comment";
+@import "cmps/post-preview";
+// @import "cmps/post-edit";
+// @import "cmps/review-list";
+@import "cmps/post-actions-btns";
+
+// Pages
+@import "pages/about-page";
+@import "pages/insta-app";
+@import "pages/login-page";
+@import "pages/signup-page";
+@import "pages/post-details";
+@import "pages/post-list";
+@import "pages/insta-app";
+

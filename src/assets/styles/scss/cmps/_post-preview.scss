@@ -1,0 +1,47 @@
+.root {
+    max-width: 345;
+    margin: 1px;
+    margin-top: 55px;
+    margin-bottom: 40px;
+
+    border-top: 1px solid lightgray;
+    .user-img {
+        cursor: pointer;
+    }
+    .media {
+        height: 0;
+        padding-top: "56.25%"; // 16:9
+    }
+    .expand {
+        transform: "rotate(0deg)";
+        margin-left: "auto";
+    }
+    .expandOpen {
+        transform: "rotate(180deg)";
+    }
+    .avatar {
+        // background-color: red;
+    }
+
+    // .post-preview {
+    //     margin-top: 40px;
+    // }
+
+    .post-actions-btns {
+        p {
+            margin-inline-start: 30px;
+            margin-top: 0;
+        }
+        svg {
+            // fill: rgb(243, 243, 243);
+            // border: 1px solid black;
+            padding: 0;
+        }
+    }
+
+    .liked {
+        svg {
+            fill: red;
+        }
+    }
+}

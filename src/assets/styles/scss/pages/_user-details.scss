@@ -1,0 +1,14 @@
+h1 {
+    color: red;
+}
+.root {
+    display: "flex";
+    flex-wrap: "wrap";
+    justify-content: "space-around";
+    overflow: "hidden";
+
+    .gridlist {
+        width: 500;
+        height: 450;
+    }
+}
