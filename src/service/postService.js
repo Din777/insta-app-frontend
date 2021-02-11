@@ -8,7 +8,9 @@ const axios = Axios.create({
 })
 const fs = require('fs')
 var gPosts = require('../data/post.json')
-const BASE_URL = 'http://localhost:3030/api/posts';
+
+// const BASE_URL = 'http://localhost:3030/api/posts';
+const BASE_URL = (process.env.NODE_ENV !== 'development') ? 'api/posts' : '//localhost:3030/api/posts'
 
 
 export const postService = {
@@ -35,25 +37,26 @@ function getById(postId) {
 }
 
 async function remove(postId) {
+    console.log('enter remove', postId);
     const res = await axios.delete(`${BASE_URL}/${postId}`),
         { data } = res
     return data
 }
 
 async function savePost(post) {
-    console.log('POST SERVICE FRONT')
-    console.log('enter savePost', post._id);
+    // console.log('POST SERVICE FRONT')
+    // console.log('enter savePost', post._id);
     var res;
     if (post._id) {
-        console.log('entrer if post._id');
-        res = await axios.put(`${BASE_URL}/${post._id}`, {post: post})
-        console.log('exist post.id');
+        // console.log('entrer if post._id');
+        res = await axios.put(`${BASE_URL}/${post._id}`, post)
+        // console.log('exist post.id');
     }
     else {
         res = await axios.post(BASE_URL, post)
-        console.log('else');
+        // console.log('else');
     }
-    console.log('res',res);
+    // console.log('res',res);
     return res.data
 }
 

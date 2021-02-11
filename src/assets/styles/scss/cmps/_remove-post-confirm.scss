@@ -1,0 +1,41 @@
+.screen {
+    background-color: rgba(0, 0, 0, 0.671);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+
+    .remove-post-modal {
+        width: 480px;
+        background-color: white;
+        margin: 0 auto;
+        border-top: 0px;
+        border-color: transparent;
+        border-radius: 15px;
+
+        form {
+            .opt-container {
+                padding: 0;
+
+                .remove-post-confirm-btn {
+                    color: #ed4954;
+                    text-align: center;
+
+                    span {
+                        font-weight: 600;
+                    }
+                }
+
+                .cancel-btn {
+                    color: inherit;
+                    text-align: center;
+                    border-bottom: 1px solid transparent;
+                }
+            }
+        }
+    }
+}

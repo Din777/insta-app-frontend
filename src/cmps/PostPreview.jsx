@@ -9,75 +9,74 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import { CommentList } from './CommentList.jsx'
-import { utilService } from '../service/utilService.js'
 import { removePost, editPost } from '../store/action/postActions.js'
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
-import { RemovePostConfirm } from './RemovePostConfirm.jsx';
 import { PostActionsBtns } from './PostActionsBtns.jsx'
 import { AddComment } from './AddComment.jsx';
 import { addComment } from '../store/action/commentActions.js'
 
 class _PostPreview extends Component {
-    
-    onAddComment = async (comment) => {
-        // await addComment(comment, this.props.post)
-        // console.log('succscsder');
 
-        // Solution:
-        // you take the post object,
-        const { post } = this.prop
-        const postCopy = JSON.parse(JSON.stringify(post))
-        postCopy.comments.push(comment)
-        // Call for action to add editPost(postCopy)
+    // onAddComment = async (comment) => {
+    //     console.log('enter on add comment');
+    //     const { loggedinUser, post } = this.props
+    //     const postCopy = { ...post } // might change to const postCopy = JSON.parse(JSON.stringify(post))
+    //     postCopy.comments.unshift({ id: utilService.makeId(), txt: '', createdAt: Date.now(), byUser: { ...loggedinUser } })
+    //     this.props.editPost(postCopy)
 
-    }
-    onToggleLiked = () => {
-        const { loggedinUser, post } = this.props
-        const postCopy = { ...post } // might change to JSON-parse+stringify
-        const idx = postCopy.likes.findIndex(like => like.byUser._id === loggedinUser._id)
-        if (idx === -1) postCopy.likes.push({ id: utilService.makeId(), byUser: { ...loggedinUser } })
-        else postCopy.likes = postCopy.likes.filter(like => like.byUser._id !== loggedinUser._id)
-        this.props.editPost(postCopy) //Next: Action > Service (+to backend) > Action > Dispatch (reducer)
-    }
+    // await addComment(comment, this.props.post)
+    // console.log('succscsder');
+
+    // Solution:
+    // you take the post object,
+    // const { post } = this.prop
+    // const postCopy = JSON.parse(JSON.stringify(post))
+    // postCopy.comments.push(comment)
+    // Call for action to add editPost(postCopy)
+
 
     render() {
-        const { post } = this.props
+        // const { post } = this.props
+        const { loggedinUser, post } = this.props
         return (
             <section>
                 <Card className={"root"}>
                     <CardHeader
                         avatar={
                             <Avatar aria-label="recipe" className={"avatar"}>
-                                <img src={post.user.imgUrl} />
+                                <img src={post.user.imgUrl} alt="" />
                             </Avatar>
                         }
                         action={
-                            <IconButton aria-label="settings" onClick={() => this.props.removePost(post._id)}>
-                                <MoreVertIcon />
+                            // <IconButton aria-label="settings" onClick={() => this.props.removePost(post, loggedinUser)}>
+                            <IconButton aria-label="settings" className="more-opt-btn"
+                                onClick={() => this.props.toggleRemovePost(post._id, post.user._id)}>
+                                <MoreHorizIcon />
                             </IconButton>
                         }
                         title={post.user.username}
-                        subheader={post.title}
+                    // subheader={post.title}
                     />
-                    <Button color="primary">follow</Button>
                     <div>
-                        <img className="user-img" src={post.imgUrl} />
+                        <img className="post-img" src={post.imgUrl} alt="" />
                     </div>
-                    <CardMedia
+                    {/* <CardMedia
                         className={"media"}
                         image={post.title}
                         title="Paella dish"
-                    />
-                    {<PostActionsBtns post={post} toggleLiked={this.onToggleLiked} />}
-                    <CommentList comments={post.comments} />
-                    <AddComment addComment={this.onAddComment} />
+                    /> */}
+                    {<PostActionsBtns post={post} loggedinUser={loggedinUser} />}
+                    <div className="post-title-container">
+                        <span className="post-title-username">{post.user.username}</span>
+                        <span className="post-title-text">{post.title}</span>
+                    </div>
+                    <p className="comments-counter">View all {post.comments.length} comments</p>
+                    {<CommentList comments={post.comments} post={post} onEditPost={this.props.editPost} loggedinUser={loggedinUser} />}
+                    <AddComment post={post} />
                 </Card>
             </section>
         )

@@ -1,4 +1,3 @@
-//prew settings- available to change
 * {
     box-sizing: border-box;
 }
@@ -8,19 +7,23 @@
 }
 
 ::selection {
-    background-color: $clr1;
+    background-color: rgb(4, 121, 255);
     color: $clr6;
 }
 
 html {
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: rem(14px);
     // color: $clr2;
-    color: #262626;
     height: 100vh;
 }
 
 body {
     margin: 0;
+
+    @include for-mobile-layout {
+        background-color: turquoise;
+    }
 }
 
 h1,

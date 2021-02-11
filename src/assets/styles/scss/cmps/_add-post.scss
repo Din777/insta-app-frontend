@@ -30,10 +30,11 @@
                 .add-post-modal-close-btn {
                     // position: absolute;
                     // top: 205px;
-                    width: 25px;
+                    width: rem(25px);
                     // margin-inline-start: 484px;
-                    // margin-top: auto;
+                    // margin-top: rem(7px);
                     padding: 0;
+                    padding-top: rem(7px);
                     border: none;
                     background-color: transparent;
                 }
@@ -46,8 +47,12 @@
                 padding: rem(10px);
 
                 .add-post-modal-btn {
-                    width: rem(45px);
+                    width: rem(35px);
                     font-size: 14px;
+                    background-color: transparent;
+                    border: 0;
+                    color: #0095f6;
+                    font-weight: 600;
                     // margin-top: 0;
                     // margin-inline-start: 440px;
                     // margin-bottom: 350px;
@@ -58,7 +63,7 @@
 
     h4 {
         padding-inline-start: rem(16px);
-        padding-bottom: rem(18px);
+        padding-bottom: rem(20px);
         padding-top: 0px;
         font-weight: bold;
         display: block;

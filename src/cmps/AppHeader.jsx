@@ -34,7 +34,7 @@ export function AppHeader() {
                         {/* <i class="far fa-plus-square"></i> */}
                         {/* </ul> */}
                         <Avatar aria-label="recipe" className={"avatar"}>
-                            <img src="https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg" />
+                            <img src="https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg" alt=""/>
                         </Avatar>
                     </div>
                 </div>

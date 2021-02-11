@@ -1,37 +1,61 @@
 .act-btn-container {
     cursor: pointer;
+    margin-bottom: 5px;
 
     .post-actions-btns {
         width: 600px;
+        padding: 0 16px 0 16px;
 
         .left-act-btns-container {
             width: 100px;
-            margin-inline-start: 10px;
+        }
+
+        .right-act-btn {
+            padding-top: 5px;
         }
     }
 
-    .right-act-btn {
-        // display: inline-flex;
-        // flex-direction: row-reverse;
-        // margin-inline-start: 480px;
+    ._8-yf5 {
+        // width: 100px;
+        // height: 100px;
+        transition: transform 0.2s;
+        // transition: width 0.2s, height 1s;
     }
-
-    svg {
-        // fill: rgb(255, 0, 179);
-    }
-    .liked {
-        svg {
-            fill: red;
+        .scale{
+            transform: scale(1.25);
         }
-    }
-    p {
+    
+
+
+    .like-count-btn {
+        border: 0;
+        background-color: transparent;
+        outline: 0;
+        width: 80px;
         margin-top: 0;
         margin-bottom: 0;
-        margin-inline-start: 18px;
-        font-size: rem(13px);
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        padding-left: 16px;
+        font-size: inherit;
+        color: #262626;
+        // font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         font-weight: 600;
         line-height: 1.43;
         letter-spacing: 0.01071em;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 16px;
+        font-size: inherit;
+        color: #262626;
+        // font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 600;
+        line-height: 1.43;
+        letter-spacing: 0.01071em;
+
+        span {
+            width: 10px;
+        }
     }
 }

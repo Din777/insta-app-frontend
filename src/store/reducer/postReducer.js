@@ -11,22 +11,20 @@ const initialState = {
     loggedinUser: localLoggedinUser
 }
 export function postReducer(state = initialState, action) {
+    // console.log('postReducer- action:', action);
+    // console.log('postReducer- state.posts:',state.posts);
     switch (action.type) {
         case 'SET_POSTS':
-
             return { ...state, posts: action.posts }
         case 'EDIT_POST':
-            const editedevPosts = state.posts.map(post => {
-                if (post._id === action.post._id) {
-                    return action.post;
-                }
-                state = {...state, posts: editedevPosts}
-                return state;
-
-            })
-            return { ...state, posts: editedevPosts }
+            // console.log('enter EDIT_POST');
+            return {
+                ...state,
+                posts: state.posts.map(post =>
+                    post._id === action.post._id ? action.post : post
+                )
+            }
         case 'ADD_POST':
-
             state = { ...state, posts: [...state.posts, action.post] }
             return state
         case 'FILTER':

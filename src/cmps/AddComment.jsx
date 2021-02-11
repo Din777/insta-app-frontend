@@ -1,65 +1,70 @@
 import { React, Component } from 'react'
 import { connect } from 'react-redux'
 import { addComment } from '../store/action/commentActions.js'
+import { utilService } from '../service/utilService.js'
+import { editPost } from '../store/action/postActions.js'
 
-import Avatar from '@material-ui/core/Avatar';
 
 class _AddComment extends Component {
 
     state = {
         comment: {
-            txt: null,
-            user: {
-                "_id": "sadad748",
-                "username": "abraham_lincoln",
-                "imgUrl": "https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg"
-            },
-            createdAt: Date.now()
+            id: utilService.makeId(),
+            txt: '',
+            createdAt: Date.now(),
+            byUser: this.props.loggedinUser
         }
     }
 
 
-    onSaveComment = async ev => {
+    onSaveComment = async (ev) => {
         ev.preventDefault()
+        const { post } = this.props
+        const postCopy = { ...post } // might change to const postCopy = JSON.parse(JSON.stringify(post))
         const savedComment = this.state.comment
-        if (!this.state.comment.txt) return alert('Can not upload empty comment')
-        addComment(savedComment)
-        this.setState({ savedComment: { txt: '' } })
+        if (!savedComment.txt) return alert('Can not post empty comment')
+        postCopy.comments.unshift(savedComment)
+        this.props.editPost(postCopy)
+        this.setState({ comment: { txt: '' } })
     }
 
+
     onInputChange = (ev) => {
-        const comment = { ...this.state.comment };
-        comment.txt = ev.target.value;
-        console.log(comment.txt);
+        const comment = { ...this.state.comment }
+        comment.txt = ev.target.value
         this.setState({
-            comment: comment
-        });
-    };
+            comment
+        })
+    }
 
 
 
     render() {
         return (
             <section className="comment-area">
-                <form onSubmit={this.onSaveComment}>
-                    <input type="txt" placeholder="Add a comment..." name="comment" className="add-comment-textarea" onChange={this.onInputChange} />
+                <form onSubmit={this.onSaveComment} className="form-container flex space-between">
+                    <div className="input-container">
+                        <input type="txt" placeholder="Add a comment..." value={this.state.comment.txt} name="txt" className="add-comment-textarea" onChange={this.onInputChange} autoComplete="off" />
+                    </div>
                     <button className="add-comment-btn">Post</button >
                 </form>
-
             </section>
         )
-
-
     }
 }
+
 const mapStateToProps = state => {
     return {
-        comments: state.postModule.comments
+        comments: state.postModule.comments,
+        posts: state.postModule.posts,
+        loggedinUser: state.postModule.loggedinUser
+
     }
 }
 
 const mapDispatchToProps = {
-   
+    addComment,
+    editPost
 }
 
 export const AddComment = connect(mapStateToProps, mapDispatchToProps)(_AddComment)

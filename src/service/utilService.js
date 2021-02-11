@@ -19,6 +19,7 @@ function makeId(length = 6) {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); // Min is inclusive, Max is Exclusive
 }
+
 function dateFormatter(timeStampStart) {
     const dateFormat = new Date(timeStampStart).toString()
     const dayName = dateFormat.substring(0, 3)

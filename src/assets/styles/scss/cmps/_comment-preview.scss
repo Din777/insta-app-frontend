@@ -1,4 +1,28 @@
-.root {
-    width: '100%';
-    max-width: 360;
+.comment-container {
+  max-width: 360;
+  padding-left: 16px;
+  // margin-bottom: 5px;
+
+  .comm-by-user {
+    font-weight: 600;
   }
+
+  .comm-text {
+    margin-inline-start: 5px;
+  }
+
+  .comm-create-date {
+    font-size: 10px;
+    color: #8e8e8e;
+    text-transform: uppercase;
+  }
+
+  .delete-comment-btn {
+    align-self: center;
+    width: 25px;
+    padding-right: 16px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
